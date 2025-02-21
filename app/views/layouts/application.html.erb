@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= content_for(:title) || "Rails Blog" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,9 +21,28 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
+</head>
 
-  <body>
+<body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div>
+        <% if user_signed_in? %>
+        <%= link_to "New Blog Post", new_blog_post_path %>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Edit account", edit_user_registration_path %>
+        <% else  %>
+        <%
+=begin%>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%
+=end%>
+        <% end %>
+    </div>
+
     <%= yield %>
-  </body>
+</body>
+
 </html>
