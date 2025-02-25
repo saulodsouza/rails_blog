@@ -13,3 +13,11 @@ user.update!(
   password: "password",
   password_confirmation: "password",
 )
+
+# 100.times do
+#   BlogPost.create!(
+#     title: Faker::Lorem.sentence,
+#     content: Faker::Lorem.paragraph,
+#     published_at: Time.current
+#   )
+# end

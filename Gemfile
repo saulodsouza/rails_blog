@@ -69,3 +69,7 @@ gem "tailwindcss-ruby", "~> 4.0"
 gem "tailwindcss-rails", "~> 4.1"
 
 gem "aws-sdk-s3", require: false
+
+gem "faker", "~> 3.4", ">= 3.4.2"
+
+gem "pagy", "~> 9.3"
