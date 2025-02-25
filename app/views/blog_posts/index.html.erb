@@ -1,6 +1,6 @@
 <div>
     <h1>Blog Posts</h1>
-    <ul>
+    <ul class="list-disc list-inside">
         <% @blog_posts.each do |post| %>
         <% if post.draft? %>
         <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
@@ -13,4 +13,8 @@
     </ul>
 </div>
 
-<%== pagy_nav(@pagy) %>
+<% if @pagy.count > @pagy.limit %>
+<div class="flex justify-center mt-4 mb-4">
+    <%== pagy_nav(@pagy) %>
+</div>
+<% end %>
