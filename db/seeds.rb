@@ -14,10 +14,10 @@ user.update!(
   password_confirmation: "password",
 )
 
-# 100.times do
-#   BlogPost.create!(
-#     title: Faker::Lorem.sentence,
-#     content: Faker::Lorem.paragraph,
-#     published_at: Time.current
-#   )
-# end
+100.times do |i|
+  blog_post = BlogPost.where(title: "Post #{i}").first_or_initialize
+  blog_post.update(
+    content: Faker::Lorem.paragraph,
+    published_at: Time.current,
+  )
+end
